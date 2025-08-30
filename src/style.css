@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tokens */
+:root { --bg: rgb(10 10 11); --fg: rgb(235 235 235); --muted: rgb(160 160 160); color-scheme: dark; }
+html, body { height: 100%; }
+body { @apply bg-[color:var(--bg)] text-[color:var(--fg)] antialiased; }
+
+/* Primitives */
+.container { @apply max-w-3xl mx-auto p-6; }
+.btn { @apply inline-flex items-center gap-2 px-3 py-2 rounded border border-white/20 hover:bg-white/10; }
+.card { @apply rounded-lg border border-white/10 p-4 bg-white/5; }
+.muted { color: var(--muted); }
