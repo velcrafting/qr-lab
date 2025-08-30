@@ -2,17 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="./logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-    <meta name="description" content="Tiny demo qr-generator">
+    <title>QR Generator</title>
+    <meta name="description" content="Generate and style QR codes (URL, text, WiFi, vCard, event) with color, gradients, logos, and export to PNG/SVG.">
   <meta name="theme-color" content="#0a0a0b">
   <link rel="canonical" href="https://velcrafting.com/labs/qr-generator/">
-  <link rel="icon" href="./thumbnail.svg">
+  <!-- Optional large preview asset; favicon uses /logo.svg -->
+  <!-- <link rel="icon" href="./thumbnail.svg"> -->
   <link rel="stylesheet" href="./src/style.css">
+  <!-- QR Code generator library (browser bundle) -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
 </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>

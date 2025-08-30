@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" aria-labelledby="title desc" role="img">
+  <title id="title">Brand Logo</title>
+  <desc id="desc">Flexible logo wrapper that preserves original logo design while allowing background color or gradient customization.</desc>
+  <defs>
+    <!-- Optional gradient background; override via CSS variables if desired -->
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="var(--logo-bg-start, #0ea5e9)"/>
+      <stop offset="100%" stop-color="var(--logo-bg-end, #22c55e)"/>
+    </linearGradient>
+  </defs>
+  <!-- Background: use solid color var, gradient, or transparent -->
+  <rect width="256" height="256" rx="32" fill="var(--logo-bg, url(#bgGradient))"/>
+
+  <!-- Place the provided logo centered; scaling keeps original symbology intact -->
+  <!-- You can tune size/position via CSS variables if needed -->
+  <g transform="translate(128,128)">
+    <g transform="translate(-96,-96)">
+      <image href="./og-logo.svg" width="192" height="192" preserveAspectRatio="xMidYMid meet"/>
+    </g>
+  </g>
+</svg>

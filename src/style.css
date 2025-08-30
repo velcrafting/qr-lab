@@ -1,14 +1,87 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Tokens */
-:root { --bg: rgb(10 10 11); --fg: rgb(235 235 235); --muted: rgb(160 160 160); color-scheme: dark; }
+/* Minimal design system without Tailwind runtime */
+:root {
+  --bg: rgb(10 10 11);
+  --fg: rgb(235 235 235);
+  --muted: rgb(160 160 160);
+}
 html, body { height: 100%; }
-body { @apply bg-[color:var(--bg)] text-[color:var(--fg)] antialiased; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+  /* Allow vertical scrolling when content exceeds viewport */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
-/* Primitives */
-.container { @apply max-w-3xl mx-auto p-6; }
-.btn { @apply inline-flex items-center gap-2 px-3 py-2 rounded border border-white/20 hover:bg-white/10; }
-.card { @apply rounded-lg border border-white/10 p-4 bg-white/5; }
+/* Global sizing to avoid subtle overflow on small screens */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Layout helpers */
+.container { max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
+@media (max-width: 640px) { .container { padding-left: 1rem; padding-right: 1rem; } }
+.card { border-radius: .75rem; border: 1px solid rgba(255,255,255,.1); padding: 1rem; background: rgba(255,255,255,.05); }
+.btn { display: inline-flex; align-items: center; gap: .5rem; padding: .625rem 1rem; border-radius: .5rem; border: 1px solid rgba(255,255,255,.2); background: transparent; color: inherit; cursor: pointer; }
+.btn:hover { background: rgba(255,255,255,.1); }
 .muted { color: var(--muted); }
+
+/* App shell and split layout */
+.app-shell { min-height: 100vh; display: flex; flex-direction: column; }
+.split { flex: 1; display: grid; grid-template-columns: minmax(360px, 460px) 1fr; gap: 1.5rem; overflow: visible; align-items: start; }
+/* Ensure grid children can scroll instead of expanding the grid */
+.split > * { min-height: 0; min-width: 0; }
+.panel { height: 100%; overflow: auto; -webkit-overflow-scrolling: touch; }
+.preview { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 1rem; overflow: auto; }
+
+/* Make preview SVG responsive */
+.preview svg { max-width: 100%; height: auto; }
+
+/* Responsive: collapse to single column for tablets/phones */
+@media (max-width: 1024px) {
+  .split { grid-template-columns: 1fr; }
+  /* Let the page scroll naturally on small screens */
+  .panel, .preview { height: auto; overflow: visible; }
+}
+
+/* When Tailwind is present, it provides utilities. These custom utilities are removed to avoid conflicts. */
+
+/* Form basics */
+input, select, textarea { color: inherit; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: .5rem; }
+input, select, textarea { outline: none; }
+input:focus, select:focus, textarea:focus { border-color: rgba(255,255,255,.25); }
+
+/* Normalize paddings/heights for form controls inside cards
+   Use !important to gently override utility classes where present. */
+.card input:not([type="color"]),
+.card select,
+.card textarea {
+  padding: .625rem .75rem !important; /* 10px 12px */
+  min-height: 2.5rem; /* 40px comfortable target */
+}
+
+/* Make long text easier to work with */
+.card textarea { resize: vertical; }
+
+/* Wrap long, unbroken strings (e.g., long URLs) safely inside cards */
+.card { overflow-wrap: anywhere; }
+
+/* Labels spacing */
+.card label.block { margin-bottom: .25rem; }
+
+/* Slightly inset full-width fields so they don't kiss the card edge */
+.card .w-full {
+  width: calc(100% - 1.5rem) !important;
+  margin-left: .75rem;
+  margin-right: .75rem;
+}
+
+/* Add breathing room between stacked rows */
+.card .grid,
+.card > div > input,
+.card > div > select,
+.card > div > textarea {
+  margin-bottom: .625rem;
+}

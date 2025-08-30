@@ -1,12 +1,27 @@
 {
   "slug": "qr-generator",
-  "title": "qr-generator",
-  "summary": "Tiny demo qr-generator",
+  "title": "QR Generator",
+  "summary": "Generate QR codes (URL, text, WiFi, vCard, event) with colors, gradients, logos, and export to PNG/SVG.",
   "version": "0.1.0",
   "author": "Steven Pajewski",
-  "tags": [],
+  "tags": ["qr","utility","react"],
   "thumbnail": "./thumbnail.svg",
   "entry": "./index.html",
   "repo": "https://github.com/velcrafting/qr-generator",
-  "updated": "2025-08-30T16:39:29.873Z"
+  "examples": [
+    { "name": "Website (velcrafting.com)", "mode": "url", "value": "https://velcrafting.com" },
+    { "name": "GitHub Profile", "mode": "url", "value": "https://github.com/velcrafting" },
+    { "name": "WiFi: Studio", "mode": "wifi", "ssid": "Studio", "encryption": "WPA" },
+    { "name": "vCard: Steven", "mode": "vcard", "fields": ["name", "org", "email", "url"] },
+    { "name": "Event: Demo Day", "mode": "event", "fields": ["title", "start", "end"] },
+    { "name": "SMS Me", "mode": "text", "value": "SMSTO:+15551234567:Hello!" },
+    { "name": "Email Me", "mode": "text", "value": "mailto:hello@velcrafting.com?subject=Hello&body=Hi" },
+    { "name": "Geo: Times Square", "mode": "text", "value": "geo:40.7580,-73.9855" },
+    { "name": "LinkedIn Profile", "mode": "url", "value": "https://www.linkedin.com/in/your-handle" },
+    { "name": "YouTube Channel", "mode": "url", "value": "https://youtube.com/@yourchannel" },
+    { "name": "App Store Listing", "mode": "url", "value": "https://apps.apple.com/app/id000000000" },
+    { "name": "Portfolio: Work", "mode": "url", "value": "https://velcrafting.com/work" },
+    { "name": "Directions to Office", "mode": "url", "value": "https://maps.google.com/?q=Velcrafting" }
+  ],
+  "updated": "2025-08-30T17:35:00.000Z"
 }
