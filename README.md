@@ -34,16 +34,16 @@ Built with Vite, React, and Tailwind CSS. The Vite base is set to `./` so you ca
 ### A) Standalone public repo (recommended for individual micros)
 1. Initialize (if not already): `git init`
 2. Create a new GitHub repo (public) and push:
-   - Using GitHub CLI: `gh repo create <owner>/qr-generator --public --source=. --remote=origin --push`
-   - Or manually: `git remote add origin git@github.com:<owner>/qr-generator.git && git branch -M main && git push -u origin main`
+   - Using GitHub CLI: `gh repo create <owner>/qr-lab --public --source=. --remote=origin --push`
+   - Or manually: `git remote add origin git@github.com:<owner>/qr-lab.git && git branch -M main && git push -u origin main`
 3. Enable GitHub Pages (Settings → Pages → Source: GitHub Actions). This repo ships a basic workflow you can adapt at the parent level if desired.
 
-The `vite.config.ts` uses `base: "./"`, so assets resolve correctly on a project site like `https://<owner>.github.io/qr-generator/` and when embedded under a subpath.
+The `vite.config.ts` uses `base: "./"`, so assets resolve correctly on a project site like `https://<owner>.github.io/qr-lab/` and when embedded under a subpath.
 
 ### B) Host under a parent site/subpath
 - If your main site is on Next.js, add a rewrite to proxy this micro (example):
-  - `/labs/qr-generator` → `https://<owner>.github.io/qr-generator/index.html`
-  - `/labs/qr-generator/:path*` → `https://<owner>.github.io/qr-generator/:path*`
+  - `/labs/qr-lab` → `https://<owner>.github.io/qr-lab/index.html`
+  - `/labs/qr-lab/:path*` → `https://<owner>.github.io/qr-lab/:path*`
 - If self-hosting, deploy the contents of `dist/` to the desired path and ensure the site serves static assets with correct content types.
 
 ## Configuration

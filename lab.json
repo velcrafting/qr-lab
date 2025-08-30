@@ -1,5 +1,5 @@
 {
-  "slug": "qr-generator",
+  "slug": "qr-lab",
   "title": "QR Generator",
   "summary": "Generate QR codes (URL, text, WiFi, vCard, event) with colors, gradients, logos, and export to PNG/SVG.",
   "version": "0.1.0",
@@ -7,7 +7,7 @@
   "tags": ["qr","utility","react"],
   "thumbnail": "./thumbnail.svg",
   "entry": "./index.html",
-  "repo": "https://github.com/velcrafting/qr-generator",
+  "repo": "https://github.com/velcrafting/qr-lab",
   "examples": [
     { "name": "Website (velcrafting.com)", "mode": "url", "value": "https://velcrafting.com" },
     { "name": "GitHub Profile", "mode": "url", "value": "https://github.com/velcrafting" },
@@ -23,5 +23,5 @@
     { "name": "Portfolio: Work", "mode": "url", "value": "https://velcrafting.com/work" },
     { "name": "Directions to Office", "mode": "url", "value": "https://maps.google.com/?q=Velcrafting" }
   ],
-  "updated": "2025-08-30T17:35:00.000Z"
+  "updated": "2025-08-30T16:45:00.000Z"
 }
